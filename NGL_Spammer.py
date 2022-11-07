@@ -35,6 +35,6 @@ while(True):
         elkuld = request.post(url, headers=fej, data=adat)
         i = i+1
     if(i == 16):
-        print("A kérdések elküldve! 1 perc múlva ismétlem!")
-        time.sleep(60)
+        print("A kérdések elküldve! 2 perc múlva ismétlem!")
+        time.sleep(120)
         i = 1
