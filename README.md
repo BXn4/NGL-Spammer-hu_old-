@@ -8,7 +8,7 @@ A kerdesek.txt-nek a python fájlal egy könyvtárban kell lennie!
 Szükséges hozzá: requests
 <h2>pip install requests</h2>
 
-![Screenshot_20221107-220111_NGL](https://user-images.githubusercontent.com/78733248/200415663-1fd5f977-69f7-49fe-8489-4b9ed30c0530.jpg =x20)
+![Screenshot_20221107-220111_NGL](https://user-images.githubusercontent.com/78733248/200415663-1fd5f977-69f7-49fe-8489-4b9ed30c0530.jpg){ width=50% }
 
 ![Screenshot_20221107-220140_NGL](https://user-images.githubusercontent.com/78733248/200415666-dd24327a-c3cc-40c2-93d0-5fcdd6f44488.jpg)
 
