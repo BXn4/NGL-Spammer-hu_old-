@@ -28,7 +28,7 @@ ido = datum.strftime("%H:%M:%S")
 print(Fore.YELLOW + "[{}]".format(ido)+ Fore.WHITE + " >> Kezdés\n")
 while(True):
     if(i < 15):
-        time.sleep(0)
+        time.sleep(1)
         kerdes = (choice(kerdesek))
         url = f"https://ngl.link/{ngl_nev}"
         fej = {
