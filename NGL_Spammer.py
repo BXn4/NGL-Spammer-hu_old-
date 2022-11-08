@@ -2,7 +2,6 @@ import time
 import requests
 import os
 from random import *
-from colorama import Fore, Back, Style
 from datetime import datetime
 
 #.txt fájl beolvasás, és a tartalmának eltárolása
@@ -25,7 +24,7 @@ ngl_nev = input("NGL név: ")
 i = 0
 datum = datetime.now()
 ido = datum.strftime("%H:%M:%S")
-print(Fore.YELLOW + "[{}]".format(ido)+ Fore.WHITE + " >> Kezdés\n")
+print("[{}] >> Kezdés\n".format(ido))
 while(True):
     if(i < 15):
         time.sleep(1)
@@ -37,12 +36,12 @@ while(True):
         adat = {
             "question": kerdes
             }
-        print(Fore.BLUE + "[Kérdés] " + Fore.WHITE + "{}".format(kerdes))
+        print("[Kérdés] {}".format(kerdes))
         elkuld = request.post(url, headers=fej, data=adat)
         i = i+1
     if(i == 15):
         datum = datetime.now()
         ido = datum.strftime("%H:%M:%S")
-        print(Fore.GREEN + "[{}]".format(ido) + Fore.WHITE +" >> Szünet (2 perc)\n")
+        print("[{}] >> Szünet (2 perc)\n".format(ido))
         time.sleep(120)
         i = 0
