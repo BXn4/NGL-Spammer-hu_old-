@@ -35,7 +35,6 @@ A páratlan siker jobb, mint a páros?
 Hova tágul a világűr?
 Az első magyarok kitől tanultak magyarul?
 És mi van a videókazetta másik oldalán?
-Vonaton: szia, te is ezen a vonaton utazol?
 Ha a feketedobozoktörhetetlen anyagból készülnek, a repülőket mért nem csinálják abból?
 Ha az űrben nem terjed a hang, akkor miért halljuk a filmeken azűrhajók repülését és a pilóták beszélgetését?
 Kedden milyen nap lesz?
@@ -247,7 +246,6 @@ Ha a ananász konzervben annanász van és az uborka konzervben uborka akkor mi 
 Hova megy a leveli béka, levelet keresni?
 Ha a holdra nappal is le lehet szállni, akkor anapra holddal?
 Ugye tegnap felkeltél?
-Szia, te is ezen a vonaton utazol?
 Hogy húzzam le a pottyantós vécét?
 Ha a nő értelmes mi van a tyúkkal?
 Azt mondják, a parlament egy bolondház. Akkor a bolondház a parlament?
@@ -287,7 +285,7 @@ Láttál már embert?
 Ha egy szinkronúszó megfullad, akkor a többinek is meg kell?
 Mi van akkor, ha a mulitplikátoros telebabrátorban nem zigál a gagyugó, és nem obor a huppancs?
 Ha a mogyoró oldaj mogyoróból készül, a napraforgó olaj napraforgóból, akkor miből készülhet a babaolaj?
-318. Az értelmező szótárban, miért van benne az értelmező szótár szó?!?
+Az értelmező szótárban, miért van benne az értelmező szótár szó?!?
 Ön, mint individum, hogyan képes kompenzálni az egyre improduktívabbá váló lét ökonómiai perifériákra szorító erők neufrózisait?
 Ha az oroszok fáznak és nincs semmi kaja akkor mér nem költöznek el?
 Hogyan jut el a hókotrós a hókotrójáig?
@@ -421,4 +419,37 @@ Mi az utolsó bók, amit kaptál?
 Milyen ízű tea a kedvenced?
 Hány pár cipőd van?
 Hány évesen jöttél rá, hogy a Télapó nem létezik?
-Miért blogolsz?
+Mi a célod az életben?
+Nyitott vagy csukott szekrényajtóval szoktál aludni?
+Hol voltál három órával ezelőtt?
+Ettél már valaha zsírkrétát?
+Mikor mentél utoljára plázába?
+Van rajtad most zokni?
+Mit ittál utoljára?
+Mit viselsz most?
+Mit ettél utoljára?
+Hol voltál előző héten ebben az időben?
+Vettél valamilyen ruhát az elmúlt 1 héten?
+Mikor volt utoljára hogy futottál?
+Mi a kedvenc állatod?
+Mit tervezel ma estére?
+Voltál valaha valamilyen táborban?
+Az iskolában kitűnő voltál?
+Mit szeretnél tudni a jövőddel kapcsolatban?
+Van-e rajtad éppen valami parfüm?
+Mit hallgatsz most?
+Gyűjtesz valamit?
+Szoktál szívószállal inni?
+Kedvenc TV-csatorna?
+Szereted a csípős szószokat?
+Mikor zuhanyoztál utoljára?
+Milyen nemzetiségű vagy?
+Te vagy valakinek a legjobb barátja?
+Gazdag vagy?
+Mit csináltál tegnap éjfélkor?
+Milyen furcsa szokásod van?
+Az ágy melyik oldalán alszol?
+Mi volt az első plüss állatod és hogy hívták?
+Melyik irányba szoktál állni a zuhanyzóban?
+Melyik az a kaja, ami tudod hogy rossz, de akkor is eszed?
+Van valamilyen furcsa testi képességed?
