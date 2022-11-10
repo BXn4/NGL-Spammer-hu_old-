@@ -7,9 +7,12 @@ def nevellenorzes():
     if(nevHossz == 1):
         print("Üres!")
     else:
-        url = 'https://ngl.link/asd)'
+        url = 'https://ngl.link/{nglNev})'
         valasz = (requests.get(url))
-        print(valasz)
+        if valasz.status_code == 200:
+            print("van ilyen fiók")
+        else:
+            print("nincs ilyen fiók, vagy várj egy kicsit")
 ablak = Tk()
 ablak.title("NGL Spammer GUI")
 ablak.configure(width=300, height=300)
