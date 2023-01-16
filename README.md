@@ -2,6 +2,8 @@
 
 Az NGL fiókoknak a spammelését teszi lehetővé előre megírt kérdésekkel. Maximum 15 kérdést tud kezelni az app, emiatt várni kell pár percet, mielőtt folytassa a küldést! 
 A kérdések a kerdesek.txt fájlban találhatóak.
+<h2>A fiókot a fiokok.txt fájlba írd bele!
+Ha többet szeretnél, akkor új sorokba írd a neveket!!</h2>
 <h3>A kerdesek.txt-nek a python fájlal egy könyvtárban kell lennie!<h3>
   
 <h3>Szükséges hozzá: requests<h3>
