@@ -15,8 +15,6 @@ with open("fiokok.txt", "r") as file:
         # Do something with the line
         cel.append(line)
         sorokx += 1
-        #print(sorokx)
-
 
 #.txt fájl beolvasás, és a tartalmának eltárolása
 try:
