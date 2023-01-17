@@ -44,7 +44,7 @@ $ cd NGL-Spammer
 $ python NGL-Spammer.py
 
 # Ha nem jó, akkor próbáld így:
-$ python3 NGL-Spammer
+$ python3 NGL-Spammer.py
 ```
 
 ## Replit
