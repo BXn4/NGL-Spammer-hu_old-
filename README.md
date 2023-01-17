@@ -7,7 +7,7 @@
 <h4 align="center">NGL fiókok elárasztása kérdésekkel</h4>
 <p align="center">
   <a href="#ismertető">Ismertető</a> ·
-  <a href="#használat / letöltés">Használat / letöltés</a> ·
+  <a href="#Használat / letöltés">Használat / letöltés</a> ·
   <a href="#replit">Replit</a>
 </p>
 
