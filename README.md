@@ -6,17 +6,17 @@
 </h1>
 <h4 align="center">NGL fiókok elárasztása kérdésekkel</h4>
 <p align="center">
-  <a href="#ismereto">Ismertető</a> ·
-  <a href="#hasznalat">Hogyan használd / Letöltés</a> ·
+  <a href="#ismereto">Ismerteto</a> ·
+  <a href="#hasznalat">Hogyan hasznald / Letoltes</a> ·
   <a href="#replit">Replit</a>
 </p>
 
 <center><img src="https://user-images.githubusercontent.com/78733248/213006672-89089652-3251-4fd1-9bb2-e3d3507903c7.gif" width=200></center>
 
-## Ismertető
+## Ismerteto
 Az NGL fiókok spammelését teszi lehetővé előre megírt kérdésekkel. Az APP maxikum 15 kérdést tud kezelni, de csak 10 kérdést fog küldeni, mivel néhol a kérdések nem mentek át. Miután sikeresen elküldte a kérdéseket a program vár 2 percet  (120 másodperc) , hogy az oldal ne észlelje spammnek. Miután letelt ez a idő, a következő fiókra fogja küldeni a kérdést. Ha a végére ért, kezdi az elejétől.
 
-## Hogyan használd / Letöltés
+## Hogyan hasznald / Letoltes
 
 Elsőnek szükséged lesz az NGL-es névre. <br> A @jel utáni szövegre van szükség. Néhol eltér, ezért ellenőrizni kell, hogy a linkben is ugyanaz a név szerepel.
 <img src="https://user-images.githubusercontent.com/78733248/213011344-bfaf61fa-9e02-4fe8-a70c-eeb99e19f341.png">
