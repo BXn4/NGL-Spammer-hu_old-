@@ -38,7 +38,7 @@ $ pip install requests
 Ezután lépj bele a mappába és írd bele a kívánt fiókokat a fiokok.txt-be! (ha kihagytad volna)
 
 # Mappába lépés
-$ cd NGL-Spammer
+$ cd ngl-spammer
 
 # Indítás
 $ python NGL-Spammer.py
