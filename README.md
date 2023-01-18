@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-<img src="https://user-images.githubusercontent.com/78733248/212997444-e311a1e9-cfae-4217-8118-ac23512723a9.jpg" alt="Markdownify" width="200"></a>
+<img src="https://user-images.githubusercontent.com/78733248/212997444-e311a1e9-cfae-4217-8118-ac23512723a9.jpg" width="200"></a>
   <br>
   NGL Spammer
 </h1>
