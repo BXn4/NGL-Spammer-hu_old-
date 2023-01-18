@@ -35,7 +35,7 @@ $ git clone https://github.com/bxn4/ngl-spammer
 # Szükséges csomagok letöltése
 $ pip install requests
 
-Ezután lépj bele a mappába és írd bele a kívánt fiókokat a fiokok.txt-be! (ha kihagytad volna)
+# Ezután lépj bele a mappába és írd bele a kívánt fiókokat a fiokok.txt-be! (ha kihagytad volna)
 
 # Mappába lépés
 $ cd ngl-spammer
