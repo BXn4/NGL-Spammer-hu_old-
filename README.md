@@ -1,3 +1,4 @@
+
 <h1 align="center">
   <br>
 <img src="https://user-images.githubusercontent.com/78733248/212997444-e311a1e9-cfae-4217-8118-ac23512723a9.jpg" width="200"></a>
@@ -48,10 +49,9 @@ $ python3 NGL-Spammer.py
 ```
 
 ## Replit
-
+<a href="https://replit.com/@BXn4/NGL-Spammer?v=1" target="_blank"><img src="https://img.shields.io/badge/replit-667881?style=for-the-badge&logo=replit&logoColor=white" alt="Replit"></a>
 Itt tudod futtatni, ha nem szeretnéd letölteni -> [Replit](https://replit.com/@BXn4/NGL-Spammer?v=1).  <br> (Elképzelhető, hogy nem működik a link, mert letörölték az oldalról.)
 
 ## Támogatás
 
 <a href="https://www.buymeacoffee.com/bence912" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee">
-
