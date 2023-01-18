@@ -49,7 +49,7 @@ $ python3 NGL-Spammer.py
 ```
 
 ## Replit
-<a href="https://replit.com/@BXn4/NGL-Spammer?v=1" target="_blank"><img src="https://img.shields.io/badge/replit-667881?style=for-the-badge&logo=replit&logoColor=white" alt="Replit"></a>
+<a href="https://replit.com/@BXn4/NGL-Spammer?v=1" target="_blank"><img src="https://img.shields.io/badge/replit-667881?style=for-the-badge&logo=replit&logoColor=white" alt="Replit"></a><br>
 Itt tudod futtatni, ha nem szeretnéd letölteni -> [Replit](https://replit.com/@BXn4/NGL-Spammer?v=1).  <br> (Elképzelhető, hogy nem működik a link, mert letörölték az oldalról.)
 
 ## Támogatás
