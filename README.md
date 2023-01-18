@@ -7,17 +7,18 @@
 </h1>
 <h4 align="center">NGL fiókok elárasztása kérdésekkel</h4>
 <p align="center">
-  <a href="#ismertető">Ismertető</a> ·
-  <a href="#Használat / letöltés">Használat / letöltés</a> ·
-  <a href="#replit">Replit</a>
+  --> <a href="#ismertető">Ismertető</a> ·
+  <a href="#használat">Használat / letöltés</a> ·
+  <a href="#replit">Replit</a>·
+    <a href="#példák">Példák</a> <--
 </p>
 
-<center><img src="https://user-images.githubusercontent.com/78733248/213006672-89089652-3251-4fd1-9bb2-e3d3507903c7.gif" width=200></center>
+<center><img src="https://user-images.githubusercontent.com/78733248/213006672-89089652-3251-4fd1-9bb2-e3d3507903c7.gif" width=200 align="center"></center>
 
 ## Ismertető
 Az NGL fiókok spammelését teszi lehetővé előre megírt kérdésekkel. Az APP maxikum 15 kérdést tud kezelni, de csak 10 kérdést fog küldeni, mivel néhol a kérdések nem mentek át. Miután sikeresen elküldte a kérdéseket a program vár 2 percet  (120 másodperc) , hogy az oldal ne észlelje spammnek. Miután letelt ez a idő, a következő fiókra fogja küldeni a kérdést. Ha a végére ért, kezdi az elejétől.
 
-## Használat / letöltés
+## Használat
 
 Elsőnek szükséged lesz az NGL-es névre. <br> A @jel utáni szövegre van szükség. Néhol eltér, ezért ellenőrizni kell, hogy a linkben is ugyanaz a név szerepel.
 <img src="https://user-images.githubusercontent.com/78733248/213011344-bfaf61fa-9e02-4fe8-a70c-eeb99e19f341.png">
@@ -25,7 +26,7 @@ Miután ez megvan a nevet másoljuk bele a **fiokok.txt**-be.
 Nincs korlátozva, hogy hány nevet adhatsz meg!
 Majd ezután lehet indítani a programot.
 
-
+## Letöltés
 A letöltéshez szükséged lesz a [Git](https://git-scm.com)-re , vagy a  [Releases](https://github.com/BXn4/NGL-Spammer/releases)-nél letöltöd a legfrissebbet. 
 A futtatáshoz [Python](https://www.python.org/) szükséges, ha nincs letöltve, akkor nem fog működni.
 
@@ -51,6 +52,26 @@ $ python3 NGL-Spammer.py
 ## Replit
 <a href="https://replit.com/@BXn4/NGL-Spammer?v=1" target="_blank"><img src="https://img.shields.io/badge/replit-667881?style=for-the-badge&logo=replit&logoColor=white" alt="Replit"></a><br>
 Itt tudod futtatni, ha nem szeretnéd letölteni -> [Replit](https://replit.com/@BXn4/NGL-Spammer?v=1).  <br> (Elképzelhető, hogy nem működik a link, mert letörölték az oldalról.)
+
+## Példák
+A **kérdések.txt** tartalma:
+```markdown
+Melyik női hírességet fogadnád el testvérednek?
+Hány országban voltál már?
+A coca-colás napocskán miért van napszemüveg? Mi süt a szemébe?
+```
+A **fiokok.txt** tartalma:
+```markdown
+# Hamarosan elérhető lesz az is, hogy a többi típusra is lehessen írkálni!
+valaki_fiokja
+ngl.valaki
+anonymous
+
+# Fejlesztés után -> V3
+valaki_fiokja
+ngl.valaki/3words
+anonymous/shipme
+```
 
 ## Támogatás
 
