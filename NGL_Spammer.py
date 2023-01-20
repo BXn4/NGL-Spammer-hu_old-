@@ -61,7 +61,7 @@ ido = datum.strftime("%H:%M:%S")
 print("\n[{}] >> Kezdés\n".format(ido))
 
 while True:
-  if (i < 2):
+  if (i < 10):
     time.sleep(1)
     fiok = fiokok[jelenlegi].strip()
     if '/' in fiok:
@@ -154,7 +154,7 @@ while True:
     elkuld = request.post("https://ngl.link/api/submit", headers=fejresz, data=adat)
     i = i + 1
 
-  if (i == 2):
+  if (i == 10):
     eszkozidgeneralas()
     jelenlegi += 1
     if jelenlegi == fiokokszama:
@@ -163,5 +163,5 @@ while True:
     print("Következő: -> " + fiokok[jelenlegi])
     ido = datum.strftime("%H:%M:%S")
     print("[{}] >> Szünet (2 perc)\n".format(ido))
-    time.sleep(10)
+    time.sleep(120)
     i = 0
