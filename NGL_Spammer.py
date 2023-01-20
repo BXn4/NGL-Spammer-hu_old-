@@ -37,7 +37,7 @@ ido = datum.strftime("%H:%M:%S")
 print("\n[{}] >> Kezdés\n".format(ido))
 
 while True:
-  if (i < 2):
+  if (i < 10):
     time.sleep(1)
     fiok = fiokok[jelenlegi].strip()
     kerdes = (choice(kerdesek))
@@ -61,7 +61,7 @@ while True:
     #print(elkuld) (Tesztelés)
     i = i + 1
 
-  if (i == 2):
+  if (i == 10):
     eszkozidgeneralas()
     print("Következő: -> " + fiokok[jelenlegi + 1])
     jelenlegi += 1
