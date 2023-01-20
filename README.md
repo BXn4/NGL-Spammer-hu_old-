@@ -1,4 +1,3 @@
-
 <h1 align="center">
   <br>
 <img src="https://user-images.githubusercontent.com/78733248/212997444-e311a1e9-cfae-4217-8118-ac23512723a9.jpg" width="200"></a>
@@ -13,7 +12,11 @@
     <a href="#példák">Példák</a> <--
 </p>
 
-<center><img src="https://user-images.githubusercontent.com/78733248/213006672-89089652-3251-4fd1-9bb2-e3d3507903c7.gif" width=200 align="center"></center>
+<center><img src="https://user-images.githubusercontent.com/78733248/213006672-89089652-3251-4fd1-9bb2-e3d3507903c7.gif" width=200 align="center"><br><br><b3>
+<div><img src="https://user-images.githubusercontent.com/78733248/213785617-13145e36-f387-45fd-bcdf-24a652f45947.png" width=200 align="center">
+<img src="https://user-images.githubusercontent.com/78733248/213785768-44476683-da38-4b78-aa15-2b9f11b1ade8.png" width=200 align="center">
+<img src="https://user-images.githubusercontent.com/78733248/213785851-56236753-2297-4251-8eea-57bfbb57ad80.png" width=200 align="center"></div></center>
+
 
 ## Ismertető
 Az NGL fiókok spammelését teszi lehetővé előre megírt kérdésekkel. Az APP maxikum 15 kérdést tud kezelni, de csak 10 kérdést fog küldeni, mivel néhol a kérdések nem mentek át. Miután sikeresen elküldte a kérdéseket a program vár 2 percet  (120 másodperc) , hogy az oldal ne észlelje spammnek. Miután letelt ez a idő, a következő fiókra fogja küldeni a kérdést. Ha a végére ért, kezdi az elejétől.
@@ -62,17 +65,28 @@ A coca-colás napocskán miért van napszemüveg? Mi süt a szemébe?
 ```
 A **fiokok.txt** tartalma:
 ```markdown
-# Hamarosan elérhető lesz az is, hogy a többi típusra is lehessen írkálni!
-valaki_fiokja
-ngl.valaki
-anonymous
+valaki
+valaki/shipme
+valaki/yourcrush
+valaki/3words
+valaki/tbh
+valaki/dealbreaker
 
-# Fejlesztés után -> V3
-valaki_fiokja
-ngl.valaki/3words
-anonymous/shipme
+# Ha a / utáni részt is kimásolod, akkor annak megfelelően fogja küldeni a kérdést.
+# Pl.: valaki/yourcrush --> Elküldi egy személy nevét.
 ```
-
+A **tbh.txt** tartalma:
+```markdown
+Szerintem előnyös lenne, ha több figyelmet fordítanál rám
+Nem változtatnék rajtad semmit se, tökéletes vagy <3
+Szeretném, ha több önbizalmad lenne
+```
+A **neverhave.txt** tartalma:
+```markdown
+voltam külföldön
+voltam állatkertben
+ettem pizzát
+```
 ## Támogatás
 
 <a href="https://www.buymeacoffee.com/bence912" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee">
