@@ -12,10 +12,10 @@
     <a href="#példák">Példák</a> <--
 </p>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/78733248/213006672-89089652-3251-4fd1-9bb2-e3d3507903c7.gif" width=200><br><br><br></p>
+<img src="https://user-images.githubusercontent.com/78733248/213006672-89089652-3251-4fd1-9bb2-e3d3507903c7.gif" width=200><br><br><br>
 <div><img src="https://user-images.githubusercontent.com/78733248/213785617-13145e36-f387-45fd-bcdf-24a652f45947.png" width=200 align="center">
 <img src="https://user-images.githubusercontent.com/78733248/213785768-44476683-da38-4b78-aa15-2b9f11b1ade8.png" width=200 align="center">
-<img src="https://user-images.githubusercontent.com/78733248/213785851-56236753-2297-4251-8eea-57bfbb57ad80.png" width=200 align="center"></div></center>
+<img src="https://user-images.githubusercontent.com/78733248/213785851-56236753-2297-4251-8eea-57bfbb57ad80.png" width=200 align="center"></div></p>
 
 
 ## Ismertető
