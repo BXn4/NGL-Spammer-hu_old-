@@ -74,7 +74,7 @@ while True:
         gameslugkuld = "rizzme"
         szavak += (choice(rizzme))
         rizzmeKuld = szavak.replace('\n', '')
-        kerdes = rizzme
+        kerdes = rizzmeKuld
         szavak = ""
       if "neverhave" in fiok:
         fiok = fiok.split("/")[0]
