@@ -22,7 +22,7 @@
 Az NGL fiókok spammelését teszi lehetővé előre megírt kérdésekkel. Az APP maxikum 15 kérdést tud kezelni, de csak 10 kérdést fog küldeni, mivel néhol a kérdések nem mentek át. Miután sikeresen elküldte a kérdéseket a program vár 2 percet  (120 másodperc) , hogy az oldal ne észlelje spammnek. Miután letelt ez a idő, a következő fiókra fogja küldeni a kérdést. Ha a végére ért, kezdi az elejétől.
 
 ## Használat
-Segítség: https://youtu.be/roLXTavyRkA
+Segítség: https://youtu.be/roLXTavyRkA<br>
 Elsőnek szükséged lesz az NGL-es névre. <br> A @jel utáni szövegre van szükség. Néhol eltér, ezért ellenőrizni kell, hogy a linkben is ugyanaz a név szerepel.
 Ha eltér, akkor a böngésző címsorából másold ki a nevet, mivel egy neven lehet több fiók is.
 <img src="https://user-images.githubusercontent.com/78733248/213011344-bfaf61fa-9e02-4fe8-a70c-eeb99e19f341.png">
