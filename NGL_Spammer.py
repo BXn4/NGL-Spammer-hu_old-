@@ -16,6 +16,7 @@ nevek = []
 tbh = []
 kissmarryblocklist = []
 tizperde = []
+rizzme = []
 fiok = ""
 eszkozid = ""
 szavak = ""
@@ -48,6 +49,8 @@ try:
         tbh = [sorok.strip() for sorok in olvas]
     with open("szovegek/dealbreaker.txt", "r", encoding="UTF-8") as olvas:
         tizperde = [sorok.strip() for sorok in olvas]
+    with open("szovegek/rizzme.txt", "r", encoding="UTF-8") as olvas:
+        rizzme = [sorok.strip() for sorok in olvas]
     with open("fiokok.txt", "r") as olvas:
         fiokok = [sorok.strip() for sorok in olvas]
     mennyitkuldott = [0 for _ in range(len(fiokok))]
@@ -65,6 +68,14 @@ while True:
     time.sleep(1)
     fiok = fiokok[jelenlegi].strip()
     if '/' in fiok:
+      if "rizzme" in fiok:
+        fiok = fiok.split("/")[0]
+        mit = "Rizzme"
+        gameslugkuld = "rizzme"
+        szavak += (choice(rizzme))
+        rizzmeKuld = szavak.replace('\n', '')
+        kerdes = rizzme
+        szavak = ""
       if "neverhave" in fiok:
         fiok = fiok.split("/")[0]
         mit = "Neverhave"
