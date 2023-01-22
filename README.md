@@ -10,7 +10,7 @@
   <a href="#használat">Használat / letöltés</a> ·
   <a href="#replit">Replit</a>·
   <a href="#példák">Példák</a>·
-    <a href="#tamogatas">Támogatás</a> <--
+    <a href="#támogatás">Támogatás</a> <--
 </p>
 <p align="center">
 <img src="https://user-images.githubusercontent.com/78733248/213006672-89089652-3251-4fd1-9bb2-e3d3507903c7.gif" width=200><br><br><br>
