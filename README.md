@@ -9,6 +9,7 @@
   --> <a href="#ismertető">Ismertető</a> ·
   <a href="#használat">Használat / letöltés</a> ·
   <a href="#replit">Replit</a>·
+  <a href="#tamogatas">Támogatás</a>·
     <a href="#példák">Példák</a> <--
 </p>
 <p align="center">
