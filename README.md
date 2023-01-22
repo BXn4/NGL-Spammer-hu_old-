@@ -55,10 +55,10 @@ $ python3 NGL-Spammer.py
 ```
 
 ## Replit
-Fontos! Mielőtt futtatod nézd meg, hogy van-e újabb release! Replit-re mindig egy kicsivel később rakom fel, erről értesülhetsz a hozzászólásokban.
+<h3>Fontos!</h3><br>Mielőtt futtatod nézd meg, hogy van-e újabb release! Replit-re mindig egy kicsivel később rakom fel, erről értesülhetsz a hozzászólásokban.
 Ha van újabb, akkor azt forkold be!<br>
-<a href="https://replit.com/@BXn4/NGL-Spammer?v=1" target="_blank"><img src="https://img.shields.io/badge/replit-667881?style=for-the-badge&logo=replit&logoColor=white" alt="Replit"></a><br>
 Itt tudod futtatni, ha nem szeretnéd letölteni -> [Replit](https://replit.com/@BXn4/NGL-Spammer?v=1).  <br> (Elképzelhető, hogy nem működik a link, mert letörölték az oldalról.)
+--> <a href="https://replit.com/@BXn4/NGL-Spammer?v=1" target="_blank"><img src="https://img.shields.io/badge/replit-667881?style=for-the-badge&logo=replit&logoColor=white" alt="Replit"></a>
 
 ## Példák
 A **kérdések.txt** tartalma:
