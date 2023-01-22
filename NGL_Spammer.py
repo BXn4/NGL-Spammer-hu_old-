@@ -119,20 +119,21 @@ while True:
       if "kissmarryblock" in fiok:
         fiok = fiok.split("/")[0]
         haromnevgeneralas()
-        if any(kissmarryblocklist.count(i) > 1 for i in kissmarryblocklist):
-          haromnevgeneralas() 
-        else:
-          mit = "KMB"
-          gameslugkuld = "kissmarryblock"
-          for k in range(3):
-            if k == 2:
-              szavak += f"{kissmarryblocklist[k]}"
-            else:
-              szavak += f"{kissmarryblocklist[k]}, "
-          kerdes = szavak
-          kissmarryblocklist = []
+        while any(kissmarryblocklist.count(i) > 1 for i in kissmarryblocklist):
           szavak = ""
+          kissmarryblocklist = []
           haromnevgeneralas()
+        haromnevgeneralas()
+        mit = "KMB"
+        gameslugkuld = "kissmarryblock"
+        for k in range(3):
+          if k == 2:
+            szavak += f"{kissmarryblocklist[k]}"
+          else:
+            szavak += f"{kissmarryblocklist[k]}, "
+        kerdes = szavak
+        kissmarryblocklist = []
+        szavak = ""
       if "3words" in fiok:
         gameslugkuld = "3words"
         fiok = fiok.split("/")[0]
@@ -142,6 +143,7 @@ while True:
         kerdes = haromszo
         szavak = ""
     else:
+      gameslugkuld = ""
       mit = "Kérdés"
       kerdes = choice(kerdesek)
     url = f"https://ngl.link/{fiok}"
