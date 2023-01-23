@@ -56,7 +56,7 @@ Mielőtt futtatod nézd meg, hogy van-e újabb release! Replit-re mindig egy kic
 Ha van újabb, akkor azt forkold be!<br>Itt tudod futtatni, ha nem szeretnéd letölteni -> [Replit](https://replit.com/@BXn4/NGL-Spammer?v=1) <br><br><a href="https://replit.com/@BXn4/NGL-Spammer?v=1" target="_blank"><img src="https://img.shields.io/badge/replit-667881?style=for-the-badge&logo=replit&logoColor=white" alt="Replit"></a>
 
 ## Példák
-<img src="https://user-images.githubusercontent.com/78733248/214125065-899f63c2-f6cd-494f-965f-a074ae556124.png" width=200></img><img src="https://user-images.githubusercontent.com/78733248/214125075-f3d02804-2861-49e7-9452-a4142117f0f8.png" width=200></img><img src="https://user-images.githubusercontent.com/78733248/214125086-1046b5ba-53df-448a-a225-fafb1832d48c.png" width=200></img>
+<img src="https://user-images.githubusercontent.com/78733248/214125065-899f63c2-f6cd-494f-965f-a074ae556124.png" width=200></img><img src="https://user-images.githubusercontent.com/78733248/214125075-f3d02804-2861-49e7-9452-a4142117f0f8.png" width=200></img><img src="https://user-images.githubusercontent.com/78733248/214125086-1046b5ba-53df-448a-a225-fafb1832d48c.png" width=200></img><br>
 A **kérdések.txt** tartalma:
 ```markdown
 Melyik női hírességet fogadnád el testvérednek?
