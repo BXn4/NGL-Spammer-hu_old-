@@ -3,6 +3,13 @@ import requests
 from random import *
 from datetime import datetime
 import uuid
+import argparse
+
+parser = argparse.ArgumentParser(prog = 'NGL-Spammer', description='NGL fiókok elárasztása kérdésekkel.')
+parser.add_argument("-f", "--fiok", help="A fiók(ok) megadása ,-vel")
+parser.add_argument("-k", "--kerdes", help="A kérdés(ek) megadása ,-vel")
+parser.add_argument("-i", "--ismetles", help="Az ismétlések száma (0 = végtelen)", type=int)
+args = parser.parse_args()
 
 fiokokszama = 0
 jelenlegi = 0
