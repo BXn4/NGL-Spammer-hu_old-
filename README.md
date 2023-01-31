@@ -28,7 +28,7 @@ Ha eltér, akkor a böngésző címsorából másold ki a nevet, mivel egy neven
 Miután ez megvan a nevet másoljuk bele a **fiokok.txt**-be.
 Nincs korlátozva, hogy hány nevet adhatsz meg!
 Majd ezután lehet indítani a programot.
-# Indítási paraméterek
+## Indítási paraméterek
 [-f FIOK] [-k KERDES] [-i ISMETLES]
 ```bash
 # Paraméterek lekérdezése
