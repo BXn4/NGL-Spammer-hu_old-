@@ -18,6 +18,8 @@ hossz = 0
 ismetles = 0
 x = 0
 kerdesekszama = 0
+holtartakerdesben = 0
+kerdesekpot = ""
 mennyitkuldott = []
 kerdesek = []
 fiokok = []
@@ -35,6 +37,7 @@ mit = ""
 gameslugkuld = ""
 kerdesarg = ""
 fiokarg = ""
+utolso = ""
 request = requests.Session()
 
 def eszkozidgeneralas():
@@ -52,6 +55,8 @@ eszkozid = eszkozidgeneralas()
 try:
     with open("szovegek/kerdesek.txt", "r", encoding="UTF-8") as olvas:
         kerdesek = [sorok.strip() for sorok in olvas]
+    with open("szovegek/kerdesek.txt", "r", encoding="UTF-8") as olvas:
+        kerdesekpot = [sorok.strip() for sorok in olvas]
     with open("szovegek/neverhave.txt", "r", encoding="UTF-8") as olvas:
         neverhave = [sorok.strip() for sorok in olvas]
     with open("szovegek/3words.txt", "r", encoding="UTF-8") as olvas:
@@ -83,18 +88,22 @@ else:
   fiokarg = args.fiok
   kerdesarg = args.kerdes
   if args.kerdes is None:
-    kerdesarg = "kerdesek.txt"
+    kerdesarg = " "
   ismetles = args.ismetles
-  if ismetles == "":
-    ismetles = 0
+  if ismetles is None:
+    ismetles = -1
+  if ismetles == 0:
+    ismetles = -1
   else:
     ismetles = args.ismetles
+
 
 if hossz > 0:
   fiokok = []
   kerdesek = []
   fiokok_split = fiokarg.split(',')
   fiokok.extend(fiokok_split)
+  utolso = fiokok[-1]
   kerdesek_split = kerdesarg.split(',')
   kerdesek.extend(kerdesek_split)
   fiokokszama = len(fiokok)
@@ -109,9 +118,153 @@ if hossz > 0:
           fiok = fiok_split
           mit = "Rizzme"
           gameslugkuld = "rizzme"
+          if kerdesarg == " ":
+            kerdes = (choice(rizzme))
+          else:
+            kerdes = kerdesek[holtartakerdesben]
+        if "neverhave" in fiok:
+          fiok_split = fiok.split("/")[0]
+          fiok = fiok_split
+          mit = "Neverhave"
+          gameslugkuld = "neverhave"
+          if kerdesarg == " ":
+            szavak = ("Én még sohasem " + choice(neverhave))
+            neverHave = szavak.replace('\n', '')
+            kerdes = neverHave
+            szavak = ""
+          else:
+            kerdes = kerdesek[holtartakerdesben]
+        if "crush" in fiok:
+          fiok_split = fiok.split("/")[0]
+          fiok = fiok_split
+          mit = "Crush"
+          gameslugkuld = "yourcrush"
+          if kerdesarg == " ":
+            szavak += (choice(nevek))
+            crush = szavak.replace('\n', '')
+            kerdes = crush
+            szavak = ""
+          else:
+            kerdes = kerdesek[holtartakerdesben]
+        if "shipme" in fiok:
+          fiok_split = fiok.split("/")[0]
+          fiok = fiok_split
+          mit = "Shipme"
+          gameslugkuld = "shipme"
+          if kerdesarg == " ":
+            szavak += (choice(nevek))
+            shipme = szavak.replace('\n', '')
+            kerdes = shipme
+            szavak = ""
+          else:
+            kerdes = kerdesek[holtartakerdesben]
+        if "tbh" in fiok:
+          fiok_split = fiok.split("/")[0]
+          fiok = fiok_split
+          mit = "TBH"
+          gameslugkuld = "tbh"
+          if kerdesarg == " ":
+            szavak = choice(tbh)
+            tbhKuld = szavak.replace('\n', '')
+            kerdes = tbhKuld
+            szavak = ""
+          else:
+            kerdes = kerdesek[holtartakerdesben]
+        if "dealbreaker" in fiok:
+          fiok_split = fiok.split("/")[0]
+          fiok = fiok_split
+          mit = "10/10"
+          gameslugkuld = "dealbreaker"
+          if kerdesarg == " ":
+            szavak = choice(tizperde)
+            tizperdeKuld = szavak.replace('\n', '')
+            kerdes = tizperdeKuld
+            szavak = ""
+          else:
+            kerdes = kerdesek[holtartakerdesben]
+        if "kissmarryblock" in fiok:
+          fiok_split = fiok.split("/")[0]
+          fiok = fiok_split
+          mit = "KMB"
+          gameslugkuld = "kissmarryblock"
+          if kerdesarg == " ":
+            haromnevgeneralas()
+            while any(kissmarryblocklist.count(i) > 1 for i in kissmarryblocklist):
+              szavak = ""
+              kissmarryblocklist = []
+              haromnevgeneralas()
+            haromnevgeneralas()
+            for k in range(3):
+              if k == 2:
+                szavak += f"{kissmarryblocklist[k]}"
+              else:
+                szavak += f"{kissmarryblocklist[k]}, "
+            kerdes = szavak
+            kissmarryblocklist = []
+            szavak = ""
+          else:
+            kerdes = kerdesek[holtartakerdesben]
+        if "3words" in fiok:
+          fiok_split = fiok.split("/")[0]
+          fiok = fiok_split
+          gameslugkuld = "3words"
+          mit = "3 Words"
+          if kerdesarg == " ":
+            szavak += (choice(haromwords) + ", " + choice(haromwords) + ", " + choice(haromwords))
+            haromszo = szavak.replace('\n', '')
+            kerdes = haromszo
+            szavak = ""
+          else: 
+            kerdes = kerdesek[holtartakerdesben]
+      else:
+        gameslugkuld = ""
+        mit = "Kérdés"
+        if kerdesarg == " ":
+          kerdes = (choice(kerdesekpot))
+        else:
+          kerdes = kerdesek[holtartakerdesben]
+      if holtartakerdesben == kerdesekszama - 1:
+        holtartakerdesben = -1
+      url = f"https://ngl.link/{fiok}"
+      holtartakerdesben += 1
 
+      fejresz = {
+      "Referer": url,
+      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+      "user-agent":
+      "Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/20100101 Firefox/108.0"
+      }
+    
+      adat = {
+    "username": fiok,
+    "question": kerdes,
+    "deviceId": eszkozid,
+    "gameSlug": gameslugkuld,
+    "referrer": ""
+      }
+      mennyitkuldott[jelenlegi] += 1
+      print("-> %s (%s) \n[%s] %s" % (fiokok[jelenlegi],mennyitkuldott[jelenlegi],mit,kerdes) + "\n")
+      elkuld = request.post("https://ngl.link/api/submit", headers=fejresz, data=adat)
+      i = i + 1
+
+    if (i == 10):
+      eszkozidgeneralas()
+      jelenlegi += 1
+      if jelenlegi == fiokokszama:
+        jelenlegi = 0
+      datum = datetime.now()
+      print("Következő: -> " + fiokok[jelenlegi])
+      ido = datum.strftime("%H:%M:%S")
+      print("[{}] >> Szünet (2 perc)\n".format(ido))
+      time.sleep(120)
+      i = 0
+      if ismetles != -1:
+        if fiok == utolso:
+          x += 1
+          datum = datetime.now()
+          ido = datum.strftime("%H:%M:%S")
+          print("[%s] Ismétlések száma: %s/%s\n" % (ido,x,ismetles))
 else:
-
   while True:
     if (i < 10):
       time.sleep(1)
