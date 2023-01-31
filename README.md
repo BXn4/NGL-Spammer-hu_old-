@@ -1,3 +1,4 @@
+
 <h1 align="center">
  <br>
 <img src="https://user-images.githubusercontent.com/78733248/212997444-e311a1e9-cfae-4217-8118-ac23512723a9.jpg" width="200"></a>
@@ -27,6 +28,17 @@ Ha eltér, akkor a böngésző címsorából másold ki a nevet, mivel egy neven
 Miután ez megvan a nevet másoljuk bele a **fiokok.txt**-be.
 Nincs korlátozva, hogy hány nevet adhatsz meg!
 Majd ezután lehet indítani a programot.
+# Indítási paraméterek
+[-f FIOK] [-k KERDES] [-i ISMETLES]
+```bash
+# Paraméterek lekérdezése
+$ python NGL-Spammer -h
+
+# Kapcsolók
+# Pl: python NGL-Spammer -f valaki,valaki/crush -k "szia hogy vagy? , Mi újság?" -i 10
+# Ha nem adjuk meg a -k kapcsolót, akkor a kérdéstípushoz megfelelően küldi a kérdéseket.
+# Ha nem adjuk meg az -i kapcsolót, akkor végtelen ideig ismétli.
+```
 
 ## Letöltés
 A letöltéshez szükséged lesz a [Git](https://git-scm.com)-re , vagy a  [Releases](https://github.com/BXn4/NGL-Spammer/releases)-nél letöltöd a legfrissebbet. 
