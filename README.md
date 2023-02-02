@@ -1,10 +1,10 @@
-
 <h1 align="center">
  <br>
 <img src="https://user-images.githubusercontent.com/78733248/212997444-e311a1e9-cfae-4217-8118-ac23512723a9.jpg" width="200"></a>
   <br>
   NGL Spammer
 </h1>
+<center><a href="https://github.com/BXn4/NGL-Spammer_en">EN</a> - <a href="https://github.com/BXn4/NGL-Spammer">HU</a> </center>
 <h4 align="center">NGL fiókok elárasztása kérdésekkel</h4>
 <p align="center">
 <p align="center">
