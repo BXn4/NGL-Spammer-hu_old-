@@ -4,7 +4,7 @@
   <br>
   NGL Spammer
 </h1>
-<p align="center"><center><a href="https://github.com/BXn4/NGL-Spammer_en">EN</a> - <a href="https://github.com/BXn4/NGL-Spammer">HU</a> </center></p>
+<p align="center"><a href="https://github.com/BXn4/NGL-Spammer_en">EN</a> - <a href="https://github.com/BXn4/NGL-Spammer">HU</a></p>
 <h4 align="center">NGL fiókok elárasztása kérdésekkel</h4>
 <p align="center">
 <p align="center">
