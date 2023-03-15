@@ -251,7 +251,7 @@ if hossz > 0:
     "gameSlug": gameslugkuld,
     "referrer": ""
       }
-      print(eszkozid)
+      #print(eszkozid)
       elkuld = request.post("https://ngl.link/api/submit", headers=fejresz, data=adat)
       eszkozid = eszkozidgeneralas()
       if elkuld.status_code == 200:
