@@ -1,3 +1,12 @@
+# ╔╗╔╔═╗╦    ╔═╗╔═╗╔═╗╔╦╗╔╦╗╔═╗╦═╗
+# ║║║║ ╦║    ╚═╗╠═╝╠═╣║║║║║║║╣ ╠╦╝
+# ╝╚╝╚═╝╩═╝  ╚═╝╩  ╩ ╩╩ ╩╩ ╩╚═╝╩╚═ v4.1
+# bug fixes
+
+# The program was made for automation.
+# This program violates NGL's terms of service, use it at your own risk!
+# Also, I don't support using it for harassment
+
 import time
 import requests
 from random import *
@@ -71,7 +80,7 @@ try:
         rizzme = [sorok.strip() for sorok in olvas]
     with open("fiokok.txt", "r") as olvas:
         fiokok = [sorok.strip() for sorok in olvas]
-    mennyitkuldott = [0 for _ in range(len(fiokok))]
+    mennyitkuldott = [1 for _ in range(len(fiokok))]
     fiokokszama = len(fiokok)
 
 except (FileNotFoundError):
@@ -79,6 +88,7 @@ except (FileNotFoundError):
 
 datum = datetime.now()
 ido = datum.strftime("%H:%M:%S")
+print("NGL Spammer by: BXn4")
 print("\n[{}] >> Kezdés\n".format(ido))
 
 if args.fiok is None:
@@ -96,7 +106,6 @@ else:
     ismetles = -1
   else:
     ismetles = args.ismetles
-
 
 if hossz > 0:
   fiokok = []
@@ -242,13 +251,20 @@ if hossz > 0:
     "gameSlug": gameslugkuld,
     "referrer": ""
       }
-      mennyitkuldott[jelenlegi] += 1
-      print("-> %s (%s) \n[%s] %s" % (fiokok[jelenlegi],mennyitkuldott[jelenlegi],mit,kerdes) + "\n")
+      print(eszkozid)
       elkuld = request.post("https://ngl.link/api/submit", headers=fejresz, data=adat)
-      i = i + 1
+      eszkozid = eszkozidgeneralas()
+      if elkuld.status_code == 200:
+        print("-> %s (%s) \n[%s] %s" % (fiokok[jelenlegi],mennyitkuldott[jelenlegi],mit,kerdes) + "\n")
+        #print(elkuld)
+        mennyitkuldott[jelenlegi] += 1
+        i = i + 1
+      else:
+        print("[{}] Nem sikerült elküldeni. Várok 2 percet mielőtt újra megpróbálom\n".format(elkuld.status_code))
+        time.sleep(120)
 
     if (i == 10):
-      eszkozidgeneralas()
+      eszkozid = eszkozidgeneralas()
       jelenlegi += 1
       if jelenlegi == fiokokszama:
         jelenlegi = 0
@@ -364,13 +380,19 @@ else:
     "gameSlug": gameslugkuld,
     "referrer": ""
       }
-      mennyitkuldott[jelenlegi] += 1
-      print("-> %s (%s) \n[%s] %s" % (fiokok[jelenlegi],mennyitkuldott[jelenlegi],mit,kerdes) + "\n")
       elkuld = request.post("https://ngl.link/api/submit", headers=fejresz, data=adat)
-      i = i + 1
+      eszkozid = eszkozidgeneralas()
+      if elkuld.status_code == 200:
+        print("-> %s (%s) \n[%s] %s" % (fiokok[jelenlegi],mennyitkuldott[jelenlegi],mit,kerdes) + "\n")
+        #print(elkuld)
+        mennyitkuldott[jelenlegi] += 1
+        i = i + 1
+      else:
+        print("[{}] Nem sikerült elküldeni. Várok 2 percet mielőtt újra megpróbálom\n".format(elkuld.status_code))
+        time.sleep(120)
 
     if (i == 10):
-      eszkozidgeneralas()
+      eszkozid = eszkozidgeneralas()
       jelenlegi += 1
       if jelenlegi == fiokokszama:
         jelenlegi = 0
