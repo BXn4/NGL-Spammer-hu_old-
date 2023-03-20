@@ -256,10 +256,11 @@ if hossz > 0:
       elkuld = request.post("https://ngl.link/api/submit", headers=fejresz, data=adat)
       eszkozid = eszkozidgeneralas()
       if elkuld.status_code == 200:
-        print("-> %s (%s) \n[%s] %s" % (fiokok[jelenlegi],mennyitkuldott[jelenlegi],mit,kerdes) + "\n")
-        #print(elkuld)
-        mennyitkuldott[jelenlegi] += 1
-        i = i + 1
+       nemsikerult = 0;
+       print("-> %s (%s) \n[%s] %s" % (fiokok[jelenlegi],mennyitkuldott[jelenlegi],mit,kerdes) + "\n")
+       #print(elkuld)
+       mennyitkuldott[jelenlegi] += 1
+       i = i + 1
       else:
         nemsikerult = nemsikerult + 1
         if nemsikerult < 4:
@@ -411,7 +412,7 @@ else:
           ido = datum.strftime("%H:%M")
           with open("logs/{}.txt".format(datumido), mode='a') as logfile:
             logfile.write("{}\nFiók: {}\nHiba: {} https://www.abstractapi.com/http-status-codes/{}\nNGL: https://ngl.link/{}\n\n".format(ido,fiok,elkuld.status_code,elkuld.status_code,fiok))
-          print("[!!!] Sikertelen! Folytatom a Következő fiókkal.\nA fiók megtalálható a: logs/{}.txt fájlban!\n".format(datumido))
+          print("[!!!] Sikertelen! Folytatom a következő fiókkal.\nA fiók megtalálható a: logs/{}.txt fájlban!\n".format(datumido))
           nemsikerult = 0;
           i = 10
 
