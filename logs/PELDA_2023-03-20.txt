@@ -1,0 +1,5 @@
+18:12
+Fiók: a123b123c123
+Hiba: 404 https://www.abstractapi.com/http-status-codes/404
+NGL: https://ngl.link/a123b123c123
+
