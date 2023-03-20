@@ -1,7 +1,7 @@
 # ╔╗╔╔═╗╦    ╔═╗╔═╗╔═╗╔╦╗╔╦╗╔═╗╦═╗
 # ║║║║ ╦║    ╚═╗╠═╝╠═╣║║║║║║║╣ ╠╦╝
-# ╝╚╝╚═╝╩═╝  ╚═╝╩  ╩ ╩╩ ╩╩ ╩╚═╝╩╚═ v4.1
-# bug fixes
+# ╝╚╝╚═╝╩═╝  ╚═╝╩  ╩ ╩╩ ╩╩ ╩╚═╝╩╚═ v4.2
+# added log + message sent check
 
 # The program was made for automation.
 # This program violates NGL's terms of service, use it at your own risk!
@@ -14,7 +14,7 @@ from datetime import datetime
 import uuid
 import argparse
 
-parser = argparse.ArgumentParser(prog = 'NGL-Spammer', description='NGL fiókok elárasztása kérdésekkel.')
+parser = argparse.ArgumentParser(prog = "NGL-Spammer", description="NGL fiókok elárasztása kérdésekkel.")
 parser.add_argument("-f", "--fiok", help="A fiók(ok) megadása ,-vel")
 parser.add_argument("-k", "--kerdes", help="A kérdés(ek) megadása ,-vel ('szia','mit csinálsz?')", type=str)
 parser.add_argument("-i", "--ismetles", help="Az ismétlések száma (0 = végtelen)", type=int)
@@ -47,6 +47,7 @@ gameslugkuld = ""
 kerdesarg = ""
 fiokarg = ""
 utolso = ""
+nemsikerult = 0
 request = requests.Session()
 
 def eszkozidgeneralas():
@@ -240,17 +241,17 @@ if hossz > 0:
       fejresz = {
       "Referer": url,
       "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-      "user-agent":
-      "Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/20100101 Firefox/108.0"
+      "user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:108.0) Gecko/20100101 Firefox/108.0"
       }
     
       adat = {
-    "username": fiok,
-    "question": kerdes,
-    "deviceId": eszkozid,
-    "gameSlug": gameslugkuld,
-    "referrer": ""
+      "username": fiok,
+      "question": kerdes,
+      "deviceId": eszkozid,
+      "gameSlug": gameslugkuld,
+      "referrer": ""
       }
+
       #print(eszkozid)
       elkuld = request.post("https://ngl.link/api/submit", headers=fejresz, data=adat)
       eszkozid = eszkozidgeneralas()
@@ -260,8 +261,19 @@ if hossz > 0:
         mennyitkuldott[jelenlegi] += 1
         i = i + 1
       else:
-        print("[{}] Nem sikerült elküldeni. Várok 2 percet mielőtt újra megpróbálom\n".format(elkuld.status_code))
-        time.sleep(120)
+        nemsikerult = nemsikerult + 1
+        if nemsikerult < 4:
+          print("[{} ({}/3)] Sikertelen! Megpróbálom 20 másodperc múlva.\n".format(elkuld.status_code,nemsikerult))
+          time.sleep(20)
+        else:
+          datum = datetime.now()
+          datumido = datum.strftime("%Y-%m-%d")
+          ido = datum.strftime("%H:%M")
+          with open("logs/{}.txt".format(datumido), mode='a') as logfile:
+            logfile.write("{}\nFiók: {}\nHiba: {} https://www.abstractapi.com/http-status-codes/{}\nNGL: https://ngl.link/{}\n\n".format(ido,fiok,elkuld.status_code,elkuld.status_code,fiok))
+          print("[!!!] Sikertelen! Folytatom a Következő fiókkal.\nA fiók megtalálható a: logs/{}.txt fájlban!\n".format(datumido))
+          nemsikerult = 0;
+          i = 10
 
     if (i == 10):
       eszkozid = eszkozidgeneralas()
@@ -374,22 +386,34 @@ else:
       }
     
       adat = {
-    "username": fiok,
-    "question": kerdes,
-    "deviceId": eszkozid,
-    "gameSlug": gameslugkuld,
-    "referrer": ""
+      "username": fiok,
+      "question": kerdes,
+      "deviceId": eszkozid,
+      "gameSlug": gameslugkuld,
+      "referrer": ""
       }
       elkuld = request.post("https://ngl.link/api/submit", headers=fejresz, data=adat)
       eszkozid = eszkozidgeneralas()
       if elkuld.status_code == 200:
+        nemsikerult = 0
         print("-> %s (%s) \n[%s] %s" % (fiokok[jelenlegi],mennyitkuldott[jelenlegi],mit,kerdes) + "\n")
         #print(elkuld)
         mennyitkuldott[jelenlegi] += 1
         i = i + 1
       else:
-        print("[{}] Nem sikerült elküldeni. Várok 2 percet mielőtt újra megpróbálom\n".format(elkuld.status_code))
-        time.sleep(120)
+        nemsikerult = nemsikerult + 1
+        if nemsikerult < 4:
+          print("[{} ({}/3)] Sikertelen! Megpróbálom 20 másodperc múlva.\n".format(elkuld.status_code,nemsikerult))
+          time.sleep(20)
+        else:
+          datum = datetime.now()
+          datumido = datum.strftime("%Y-%m-%d")
+          ido = datum.strftime("%H:%M")
+          with open("logs/{}.txt".format(datumido), mode='a') as logfile:
+            logfile.write("{}\nFiók: {}\nHiba: {} https://www.abstractapi.com/http-status-codes/{}\nNGL: https://ngl.link/{}\n\n".format(ido,fiok,elkuld.status_code,elkuld.status_code,fiok))
+          print("[!!!] Sikertelen! Folytatom a Következő fiókkal.\nA fiók megtalálható a: logs/{}.txt fájlban!\n".format(datumido))
+          nemsikerult = 0;
+          i = 10
 
     if (i == 10):
       eszkozid = eszkozidgeneralas()
