@@ -1,11 +1,11 @@
 # ╔╗╔╔═╗╦    ╔═╗╔═╗╔═╗╔╦╗╔╦╗╔═╗╦═╗
 # ║║║║ ╦║    ╚═╗╠═╝╠═╣║║║║║║║╣ ╠╦╝
-# ╝╚╝╚═╝╩═╝  ╚═╝╩  ╩ ╩╩ ╩╩ ╩╚═╝╩╚═ v4.2
-# added log + message sent check
+# ╝╚╝╚═╝╩═╝  ╚═╝╩  ╩ ╩╩ ╩╩ ╩╚═╝╩╚═ v5
+# added account check
 
 # The program was made for automation.
 # This program violates NGL's terms of service, use it at your own risk!
-# Also, I don't support using it for harassment
+# Also, I don't support using it for harassment.
 
 import time
 import requests
@@ -13,6 +13,9 @@ from random import *
 from datetime import datetime
 import uuid
 import argparse
+import hashlib
+import sys
+import os
 
 parser = argparse.ArgumentParser(prog = "NGL-Spammer", description="NGL fiókok elárasztása kérdésekkel.")
 parser.add_argument("-f", "--fiok", help="A fiók(ok) megadása ,-vel")
@@ -50,6 +53,64 @@ utolso = ""
 nemsikerult = 0
 request = requests.Session()
 
+
+def ellenorzes():
+    print("Ellenőrzöm, hogy az általad megadott fiókok léteznek-e.")
+    print("Ez egy egyszeri alkalom. Ha a fiokok.txt tartalma nem változik, akkor ez a lépés kihagyásra kerül.")
+    hibak = 0
+    hibas = []
+    for o in range(fiokokszama):
+        time.sleep(2)
+        valasz = requests.get("https://ngl.link/{}".format(fiokok[o]))
+        if valasz.status_code == 200:
+            print("[OK] -> {} ".format(fiokok[o]))
+        else:
+            hibak = hibak + 1
+            hibas.append(fiokok[o])
+            print("[!]  -> {} ".format(fiokok[o]))
+    print("\nEllenőrzés kész!")
+    print("Összesen {} fiókot találtam, ami nem létezik.".format(hibak))
+    print("A fiókok a következőek:")
+    for g in range (len(hibas)):
+        print(hibas[g])
+    valasztas = ""
+    while valasztas not in ["I", "N"]:
+        valasztas = input("A megjelenített fiókok nem léteznek. Szeretnéd, hogy eltávolításra kerüljenek? (I/N): ")
+        valasztas = valasztas.upper()
+        if valasztas == "I":
+            for g in range (len(hibas)):
+                fiokok.remove(hibas[g])
+            with open("fiokok.txt", "w") as iras:
+                iras.write('\n'.join(fiokok))
+            print("Sikeres törlés!")
+            if os.name == "nt":
+                os.system("cls")
+            else:
+                os.system("clear")
+            fiokokStringx = ','.join(fiokok)
+            eredmenyx = hashlib.md5(fiokokStringx.encode())
+            #print(fiokok)
+            #print(fiokokStringx)
+            #print (eredmenyx.hexdigest())
+            with open("MD5.md5", mode='r+') as md5:
+                md5.seek(0) 
+                md5.write(eredmenyx.hexdigest())
+                #print(eredmenyx.hexdigest())
+        elif valasztas == "N":
+            print("Mivel NEM a válaszod, ezért elképzelhető, hogy a program 404-es hibával tér vissza.")
+            fiokokStringx = ','.join(fiokok)
+            eredmenyx = hashlib.md5(fiokokStringx.encode())
+            with open("MD5.md5", mode='r+') as md5:
+                md5.seek(0) 
+                md5.write(eredmenyx.hexdigest())
+            time.sleep(5)
+            if os.name == "nt":
+                os.system("cls")
+            else:
+                os.system("clear")
+        else:
+            print("Kérlek I/N-el válaszolj!")
+            
 def eszkozidgeneralas():
     eszkozid = uuid.uuid4().hex
     return "-".join([eszkozid[i:i+8] for i in range(0, 32, 8)])
@@ -86,6 +147,24 @@ try:
 
 except (FileNotFoundError):
   print("Nem található a fájl!")
+
+fiokokString = ','.join(fiokok)
+#print(fiokok)
+#print(fiokokString)
+eredmeny = hashlib.md5(fiokokString.encode())
+if eredmeny.hexdigest() == "8333fda9bf9d0780c1ab6ee30d64c9b2":
+    print("A fiokok.txt fájl tartalma a példa fiókok. Kérlek írd bele a kívánt fiokokat!")
+    input("Nyomj egy entert a kilépéshez...")
+    sys.exit()
+else:
+    with open("MD5.md5", mode='r+') as md5:
+            adat = md5.read()
+            if adat != eredmeny.hexdigest():
+                #print (adat)
+                #print (eredmeny.hexdigest())
+                ellenorzes()
+            else:
+                print("Minden rendben!")  
 
 datum = datetime.now()
 ido = datum.strftime("%H:%M:%S")
@@ -256,11 +335,11 @@ if hossz > 0:
       elkuld = request.post("https://ngl.link/api/submit", headers=fejresz, data=adat)
       eszkozid = eszkozidgeneralas()
       if elkuld.status_code == 200:
-       nemsikerult = 0;
-       print("-> %s (%s) \n[%s] %s" % (fiokok[jelenlegi],mennyitkuldott[jelenlegi],mit,kerdes) + "\n")
-       #print(elkuld)
-       mennyitkuldott[jelenlegi] += 1
-       i = i + 1
+        nemsikerult = 0;
+        print("-> %s (%s) \n[%s] %s" % (fiokok[jelenlegi],mennyitkuldott[jelenlegi],mit,kerdes) + "\n")
+        #print(elkuld)
+        mennyitkuldott[jelenlegi] += 1
+        i = i + 1
       else:
         nemsikerult = nemsikerult + 1
         if nemsikerult < 4:
