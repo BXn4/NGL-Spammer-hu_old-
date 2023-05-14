@@ -18,17 +18,19 @@ import sys
 import os
 
 parser = argparse.ArgumentParser(prog = "NGL-Spammer", description="NGL fiókok elárasztása kérdésekkel.")
+parser.add_argument("-s", help="Az ellenőrzés kihagyása")
 parser.add_argument("-f", "--fiok", help="A fiók(ok) megadása ,-vel")
 parser.add_argument("-k", "--kerdes", help="A kérdés(ek) megadása ,-vel ('szia','mit csinálsz?')", type=str)
 parser.add_argument("-i", "--ismetles", help="Az ismétlések száma (0 = végtelen)", type=int)
 args = parser.parse_args()
 
+global fiokokszama, jelenlegi, i, hossz, ismetles, kerdesekszama, holtartakerdesben, kerdesekpot, mennyitkuldott, kerdesek, fiokok, neverhave, haromwords, nevek, tbh, kissmarryblocklist, tizperde, rizzme, fiok, eszkozid, szavak, mit, gameslugkuld, kerdesarg, fiokarg, utolso, nemsikerult
 fiokokszama = 0
 jelenlegi = 0
 i = 0
+x = 0
 hossz = 0
 ismetles = 0
-x = 0
 kerdesekszama = 0
 holtartakerdesben = 0
 kerdesekpot = ""
@@ -53,63 +55,68 @@ utolso = ""
 nemsikerult = 0
 request = requests.Session()
 
+def clear():
+  if os.name == "nt":
+    os.system("cls")
+  else:
+    os.system("clear")
+
+def fiokokBeolvas():
+  global fiokok, mennyitkuldott, fiokokszama
+  with open("fiokok.txt", "r") as olvas:
+    fiokok = [sorok.strip() for sorok in olvas]
+    mennyitkuldott = [1 for _ in range(len(fiokok))]
+    fiokokszama = len(fiokok)
 
 def ellenorzes():
-    print("Ellenőrzöm, hogy az általad megadott fiókok léteznek-e.")
-    print("Ez egy egyszeri alkalom. Ha a fiokok.txt tartalma nem változik, akkor ez a lépés kihagyásra kerül.")
-    hibak = 0
-    hibas = []
-    for o in range(fiokokszama):
-        time.sleep(2)
-        valasz = requests.get("https://ngl.link/{}".format(fiokok[o]))
-        if valasz.status_code == 200:
-            print("[OK] -> {} ".format(fiokok[o]))
-        else:
-            hibak = hibak + 1
-            hibas.append(fiokok[o])
-            print("[!]  -> {} ".format(fiokok[o]))
-    print("\nEllenőrzés kész!")
+  global fiokokszama, fiokok
+  hibak = 0
+  hibas = []
+  for o in range(fiokokszama):
+    time.sleep(3)
+    valasz = requests.get("https://ngl.link/{}".format(fiokok[o]))
+    if valasz.status_code == 200:
+      print("[OK] -> {} ".format(fiokok[o]))
+    else:
+      hibak = hibak + 1
+      hibas.append(fiokok[o])
+      print("[!]  -> {} ".format(fiokok[o]))
+  clear()
+  fiokokStringx = ','.join(fiokok)
+  eredmenyx = hashlib.md5(fiokokStringx.encode())
+  with open("MD5.md5", mode='r+') as md5:
+    md5.seek(0) 
+    md5.write(eredmenyx.hexdigest())
+  if hibak > 0:
     print("Összesen {} fiókot találtam, ami nem létezik.".format(hibak))
     print("A fiókok a következőek:")
     for g in range (len(hibas)):
-        print(hibas[g])
-    valasztas = ""
-    while valasztas not in ["I", "N"]:
+      print(hibas[g])
+      valasztas = ""
+      while valasztas not in ["I", "N"]:
         valasztas = input("A megjelenített fiókok nem léteznek. Szeretnéd, hogy eltávolításra kerüljenek? (I/N): ")
         valasztas = valasztas.upper()
         if valasztas == "I":
-            for g in range (len(hibas)):
-                fiokok.remove(hibas[g])
+          for g in range (len(hibas)):
+            fiokok.remove(hibas[g])
             with open("fiokok.txt", "w") as iras:
-                iras.write('\n'.join(fiokok))
-            print("Sikeres törlés!")
-            if os.name == "nt":
-                os.system("cls")
-            else:
-                os.system("clear")
-            fiokokStringx = ','.join(fiokok)
-            eredmenyx = hashlib.md5(fiokokStringx.encode())
-            #print(fiokok)
-            #print(fiokokStringx)
-            #print (eredmenyx.hexdigest())
-            with open("MD5.md5", mode='r+') as md5:
+              iras.write('\n'.join(fiokok))
+              print("Sikeres törlés!")
+              clear()
+              fiokokStringx = ','.join(fiokok)
+              eredmenyx = hashlib.md5(fiokokStringx.encode())
+              with open("MD5.md5", mode='r+') as md5:
                 md5.seek(0) 
                 md5.write(eredmenyx.hexdigest())
-                #print(eredmenyx.hexdigest())
         elif valasztas == "N":
-            print("Mivel NEM a válaszod, ezért elképzelhető, hogy a program 404-es hibával tér vissza.")
-            fiokokStringx = ','.join(fiokok)
-            eredmenyx = hashlib.md5(fiokokStringx.encode())
-            with open("MD5.md5", mode='r+') as md5:
-                md5.seek(0) 
-                md5.write(eredmenyx.hexdigest())
-            time.sleep(5)
-            if os.name == "nt":
-                os.system("cls")
-            else:
-                os.system("clear")
-        else:
-            print("Kérlek I/N-el válaszolj!")
+          print("Mivel NEM a válaszod, ezért elképzelhető, hogy a program 404-es hibával tér vissza.")
+          fiokokStringx = ','.join(fiokok)
+          eredmenyx = hashlib.md5(fiokokStringx.encode())
+          with open("MD5.md5", mode='r+') as md5:
+            md5.seek(0) 
+            md5.write(eredmenyx.hexdigest())
+          time.sleep(5)
+          clear()
             
 def eszkozidgeneralas():
     eszkozid = uuid.uuid4().hex
@@ -123,62 +130,56 @@ def haromnevgeneralas():
 eszkozidgeneralas()
 eszkozid = eszkozidgeneralas()
 
-try:
-    with open("szovegek/kerdesek.txt", "r", encoding="UTF-8") as olvas:
-        kerdesek = [sorok.strip() for sorok in olvas]
-    with open("szovegek/kerdesek.txt", "r", encoding="UTF-8") as olvas:
-        kerdesekpot = [sorok.strip() for sorok in olvas]
-    with open("szovegek/neverhave.txt", "r", encoding="UTF-8") as olvas:
-        neverhave = [sorok.strip() for sorok in olvas]
-    with open("szovegek/3words.txt", "r", encoding="UTF-8") as olvas:
-        haromwords = [sorok.strip() for sorok in olvas]
-    with open("szovegek/nevek.txt", "r", encoding="UTF-8") as olvas:
-        nevek = [sorok.strip() for sorok in olvas]
-    with open("szovegek/tbh.txt", "r", encoding="UTF-8") as olvas:
-        tbh = [sorok.strip() for sorok in olvas]
-    with open("szovegek/dealbreaker.txt", "r", encoding="UTF-8") as olvas:
-        tizperde = [sorok.strip() for sorok in olvas]
-    with open("szovegek/rizzme.txt", "r", encoding="UTF-8") as olvas:
-        rizzme = [sorok.strip() for sorok in olvas]
-    with open("fiokok.txt", "r") as olvas:
-        fiokok = [sorok.strip() for sorok in olvas]
-    mennyitkuldott = [1 for _ in range(len(fiokok))]
-    fiokokszama = len(fiokok)
+def kerdesekBeolvas():
+  global kerdesek, kerdesekpot, neverhave, haromwords, nevek, tbh, tizperde, rizzme
+  with open("szovegek/kerdesek.txt", "r", encoding="UTF-8") as olvas:
+    kerdesek = [sorok.strip() for sorok in olvas]
+  with open("szovegek/kerdesek.txt", "r", encoding="UTF-8") as olvas:
+    kerdesekpot = [sorok.strip() for sorok in olvas]
+  with open("szovegek/neverhave.txt", "r", encoding="UTF-8") as olvas:
+    neverhave = [sorok.strip() for sorok in olvas]
+  with open("szovegek/3words.txt", "r", encoding="UTF-8") as olvas:
+    haromwords = [sorok.strip() for sorok in olvas]
+  with open("szovegek/nevek.txt", "r", encoding="UTF-8") as olvas:
+    nevek = [sorok.strip() for sorok in olvas]
+  with open("szovegek/tbh.txt", "r", encoding="UTF-8") as olvas:
+    tbh = [sorok.strip() for sorok in olvas]
+  with open("szovegek/dealbreaker.txt", "r", encoding="UTF-8") as olvas:
+    tizperde = [sorok.strip() for sorok in olvas]
+  with open("szovegek/rizzme.txt", "r", encoding="UTF-8") as olvas:
+    rizzme = [sorok.strip() for sorok in olvas]
 
-except (FileNotFoundError):
-  print("Nem található a fájl!")
-
-fiokokString = ','.join(fiokok)
-#print(fiokok)
-#print(fiokokString)
-eredmeny = hashlib.md5(fiokokString.encode())
-if eredmeny.hexdigest() == "8333fda9bf9d0780c1ab6ee30d64c9b2":
+def ellenorzesMD():
+  global fiokok
+  fiokokString = ','.join(fiokok)
+  eredmeny = hashlib.md5(fiokokString.encode())
+  if eredmeny.hexdigest() == "8333fda9bf9d0780c1ab6ee30d64c9b2":
     print("A fiokok.txt fájl tartalma a példa fiókok. Kérlek írd bele a kívánt fiokokat!")
     input("Nyomj egy entert a kilépéshez...")
     sys.exit()
-else:
+  else:
     with open("MD5.md5", mode='r+') as md5:
-            adat = md5.read()
-            if adat != eredmeny.hexdigest():
-                #print (adat)
-                #print (eredmeny.hexdigest())
-                ellenorzes()
-            else:
-                print("Minden rendben!")  
-
-datum = datetime.now()
-ido = datum.strftime("%H:%M:%S")
-print("NGL Spammer by: BXn4")
-print("\n[{}] >> Kezdés\n".format(ido))
+      adat = md5.read()
+      if adat != eredmeny.hexdigest():
+        if adat!= "0":
+          print("Ellenőrzöm, hogy az általad megadott fiókok léteznek-e.")
+          print("Ez egy egyszeri alkalom. Ha a fiokok.txt tartalma nem változik, akkor ez a lépés kihagyásra kerül.")
+          print("Ha mindig kiszeretnéd hagyni ezt a lépést, akkor az MD5.md5 fájl tartalmát írd át 0-ra!")
+          ellenorzes()
 
 if args.fiok is None:
   hossz = 0
+  fiokokBeolvas()
+  ellenorzesMD()
+  kerdesekBeolvas()
 else:
   hossz = 1
+  fiokokBeolvas()
   fiokarg = args.fiok
   kerdesarg = args.kerdes
   if args.kerdes is None:
     kerdesarg = " "
+    kerdesekBeolvas()
   ismetles = args.ismetles
   if ismetles is None:
     ismetles = -1
@@ -187,6 +188,10 @@ else:
   else:
     ismetles = args.ismetles
 
+datum = datetime.now()
+ido = datum.strftime("%H:%M:%S")
+print("NGL Spammer by: BXn4")
+print("\n[{}] >> Kezdés\n".format(ido))
 if hossz > 0:
   fiokok = []
   kerdesek = []
@@ -331,13 +336,11 @@ if hossz > 0:
       "referrer": ""
       }
 
-      #print(eszkozid)
       elkuld = request.post("https://ngl.link/api/submit", headers=fejresz, data=adat)
       eszkozid = eszkozidgeneralas()
       if elkuld.status_code == 200:
         nemsikerult = 0;
         print("-> %s (%s) \n[%s] %s" % (fiokok[jelenlegi],mennyitkuldott[jelenlegi],mit,kerdes) + "\n")
-        #print(elkuld)
         mennyitkuldott[jelenlegi] += 1
         i = i + 1
       else:
