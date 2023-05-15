@@ -7,6 +7,8 @@
 # This program violates NGL's terms of service, use it at your own risk!
 # Also, I don't support using it for harassment.
 
+# If you found a error, or you want a new feature please dm me on Telegram! t.me/bencewashere
+
 import time
 import requests
 from random import *
@@ -92,8 +94,8 @@ def ellenorzes():
     print("A fiókok a következőek:")
     for g in range (len(hibas)):
       print(hibas[g])
-      valasztas = ""
-      while valasztas not in ["I", "N"]:
+    valasztas = ""
+    while valasztas not in ["I", "N"]:
         valasztas = input("A megjelenített fiókok nem léteznek. Szeretnéd, hogy eltávolításra kerüljenek? (I/N): ")
         valasztas = valasztas.upper()
         if valasztas == "I":
@@ -101,13 +103,13 @@ def ellenorzes():
             fiokok.remove(hibas[g])
             with open("fiokok.txt", "w") as iras:
               iras.write('\n'.join(fiokok))
-              print("Sikeres törlés!")
-              clear()
-              fiokokStringx = ','.join(fiokok)
-              eredmenyx = hashlib.md5(fiokokStringx.encode())
-              with open("MD5.md5", mode='r+') as md5:
-                md5.seek(0) 
-                md5.write(eredmenyx.hexdigest())
+          print("Sikeres törlés!")
+          clear()
+          fiokokStringx = ','.join(fiokok)
+          eredmenyx = hashlib.md5(fiokokStringx.encode())
+          with open("MD5.md5", mode='r+') as md5:
+              md5.seek(0) 
+              md5.write(eredmenyx.hexdigest())
         elif valasztas == "N":
           print("Mivel NEM a válaszod, ezért elképzelhető, hogy a program 404-es hibával tér vissza.")
           fiokokStringx = ','.join(fiokok)
@@ -521,7 +523,6 @@ else:
       if elkuld.status_code == 200:
         nemsikerult = 0
         print("-> %s (%s) \n[%s] %s" % (fiokok[jelenlegi],mennyitkuldott[jelenlegi],mit,kerdes) + "\n")
-        #print(elkuld)
         mennyitkuldott[jelenlegi] += 1
         i = i + 1
       else:
