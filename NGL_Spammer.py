@@ -1,6 +1,6 @@
 # ╔╗╔╔═╗╦    ╔═╗╔═╗╔═╗╔╦╗╔╦╗╔═╗╦═╗
 # ║║║║ ╦║    ╚═╗╠═╝╠═╣║║║║║║║╣ ╠╦╝
-# ╝╚╝╚═╝╩═╝  ╚═╝╩  ╩ ╩╩ ╩╩ ╩╚═╝╩╚═ v5
+# ╝╚╝╚═╝╩═╝  ╚═╝╩  ╩ ╩╩ ╩╩ ╩╚═╝╩╚═ v4.3
 # added account check
 
 # The program was made for automation.
@@ -18,13 +18,12 @@ import sys
 import os
 
 parser = argparse.ArgumentParser(prog = "NGL-Spammer", description="NGL fiókok elárasztása kérdésekkel.")
-parser.add_argument("-s", help="Az ellenőrzés kihagyása")
 parser.add_argument("-f", "--fiok", help="A fiók(ok) megadása ,-vel")
 parser.add_argument("-k", "--kerdes", help="A kérdés(ek) megadása ,-vel ('szia','mit csinálsz?')", type=str)
 parser.add_argument("-i", "--ismetles", help="Az ismétlések száma (0 = végtelen)", type=int)
 args = parser.parse_args()
 
-global fiokokszama, jelenlegi, i, hossz, ismetles, kerdesekszama, holtartakerdesben, kerdesekpot, mennyitkuldott, kerdesek, fiokok, neverhave, haromwords, nevek, tbh, kissmarryblocklist, tizperde, rizzme, fiok, eszkozid, szavak, mit, gameslugkuld, kerdesarg, fiokarg, utolso, nemsikerult
+global fiokokszama, jelenlegi, i, hossz, ismetles, kerdesekszama, holtartakerdesben, kerdesekpot, mennyitkuldott, kerdesek, fiokok, neverhave, haromwords, nevek, tbh, kissmarryblocklist, tizperde, rizzme, confessions, fiok, eszkozid, szavak, mit, gameslugkuld, kerdesarg, fiokarg, utolso, nemsikerult
 fiokokszama = 0
 jelenlegi = 0
 i = 0
@@ -44,6 +43,7 @@ tbh = []
 kissmarryblocklist = []
 tizperde = []
 rizzme = []
+confessions = []
 fiok = ""
 eszkozid = ""
 szavak = ""
@@ -131,7 +131,7 @@ eszkozidgeneralas()
 eszkozid = eszkozidgeneralas()
 
 def kerdesekBeolvas():
-  global kerdesek, kerdesekpot, neverhave, haromwords, nevek, tbh, tizperde, rizzme
+  global kerdesek, kerdesekpot, neverhave, haromwords, nevek, tbh, tizperde, rizzme, confessions
   with open("szovegek/kerdesek.txt", "r", encoding="UTF-8") as olvas:
     kerdesek = [sorok.strip() for sorok in olvas]
   with open("szovegek/kerdesek.txt", "r", encoding="UTF-8") as olvas:
@@ -148,6 +148,8 @@ def kerdesekBeolvas():
     tizperde = [sorok.strip() for sorok in olvas]
   with open("szovegek/rizzme.txt", "r", encoding="UTF-8") as olvas:
     rizzme = [sorok.strip() for sorok in olvas]
+  with open("szovegek/confessions.txt", "r", encoding="UTF-8") as olvas:
+    confessions = [sorok.strip() for sorok in olvas]
 
 def ellenorzesMD():
   global fiokok
@@ -174,7 +176,6 @@ if args.fiok is None:
   kerdesekBeolvas()
 else:
   hossz = 1
-  fiokokBeolvas()
   fiokarg = args.fiok
   kerdesarg = args.kerdes
   if args.kerdes is None:
@@ -202,6 +203,8 @@ if hossz > 0:
   kerdesek.extend(kerdesek_split)
   fiokokszama = len(fiokok)
   kerdesekszama = len(kerdesek)
+  mennyitkuldott = [1 for _ in range(len(fiokok))]
+  fiokokszama = len(fiokok)
   while x != ismetles: 
     if i < 10:
       time.sleep(1)
@@ -214,6 +217,15 @@ if hossz > 0:
           gameslugkuld = "rizzme"
           if kerdesarg == " ":
             kerdes = (choice(rizzme))
+          else:
+            kerdes = kerdesek[holtartakerdesben]
+        if "confessions" in fiok:
+          fiok_split = fiok.split("/")[0]
+          fiok = fiok_split
+          mit = "Confessions"
+          gameslugkuld = "confessions"
+          if kerdesarg == " ":
+            kerdes = (choice(confessions))
           else:
             kerdes = kerdesek[holtartakerdesben]
         if "neverhave" in fiok:
@@ -237,6 +249,18 @@ if hossz > 0:
             szavak += (choice(nevek))
             crush = szavak.replace('\n', '')
             kerdes = crush
+            szavak = ""
+          else:
+            kerdes = kerdesek[holtartakerdesben]
+        if "wfriendship" in fiok:
+          fiok_split = fiok.split("/")[0]
+          fiok = fiok_split
+          mit = "Friendship"
+          gameslugkuld = "wfriendship"
+          if kerdesarg == " ":
+            szavak += (choice(nevek))
+            friendship = szavak.replace('\n', '')
+            kerdes = friendship
             szavak = ""
           else:
             kerdes = kerdesek[holtartakerdesben]
@@ -389,6 +413,14 @@ else:
           rizzmeKuld = szavak.replace('\n', '')
           kerdes = rizzmeKuld
           szavak = ""
+        if "confessions" in fiok:
+          fiok = fiok.split("/")[0]
+          mit = "Confessions"
+          gameslugkuld = "confessions"
+          szavak += (choice(confessions))
+          confessionsKuld = szavak.replace('\n', '')
+          kerdes = confessionsKuld
+          szavak = ""
         if "neverhave" in fiok:
           fiok = fiok.split("/")[0]
           mit = "Neverhave"
@@ -404,6 +436,14 @@ else:
           szavak += (choice(nevek))
           crush = szavak.replace('\n', '')
           kerdes = crush
+          szavak = ""
+        if "wfriendship" in fiok:
+          fiok = fiok.split("/")[0]
+          mit = "Friendship"
+          gameslugkuld = "wfriendship"
+          szavak += (choice(nevek))
+          friendship = szavak.replace('\n', '')
+          kerdes = friendship
           szavak = ""
         if "shipme" in fiok:
           fiok = fiok.split("/")[0]
