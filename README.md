@@ -28,6 +28,7 @@ Ha eltér, akkor a böngésző címsorából másold ki a nevet, mivel egy neven
 Miután ez megvan a nevet másoljuk bele a **fiokok.txt**-be.
 Nincs korlátozva, hogy hány nevet adhatsz meg!
 Majd ezután lehet indítani a programot.
+<br>
 **Minden módosítás után ellenőrizni fogja, hogy a fiókok léteznek-e.** Ha van olyan fiók, ami nem létezik, akkor megkérdezi, majd törli azt a fiókot. Ha ezt a lépést mindig kiszeretnéd hagyni, akkor az **MD5.md5** fájl tartalmát írd át 0-ra!
 ## Indítási paraméterek
 
