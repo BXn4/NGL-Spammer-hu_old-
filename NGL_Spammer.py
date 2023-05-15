@@ -176,6 +176,7 @@ if args.fiok is None:
   kerdesekBeolvas()
 else:
   hossz = 1
+  fiokokBeolvas()
   fiokarg = args.fiok
   kerdesarg = args.kerdes
   if args.kerdes is None:
