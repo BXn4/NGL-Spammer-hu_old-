@@ -28,7 +28,9 @@ Ha eltér, akkor a böngésző címsorából másold ki a nevet, mivel egy neven
 Miután ez megvan a nevet másoljuk bele a **fiokok.txt**-be.
 Nincs korlátozva, hogy hány nevet adhatsz meg!
 Majd ezután lehet indítani a programot.
+**Minden módosítás után ellenőrizni fogja, hogy a fiókok léteznek-e.** Ha van olyan fiók, ami nem létezik, akkor megkérdezi, majd törli azt a fiókot. Ha ezt a lépést mindig kiszeretnéd hagyni, akkor az **MD5.md5** fájl tartalmát írd át 0-ra!
 ## Indítási paraméterek
+
 [-f FIOK] [-k KERDES] [-i ISMETLES]
 ```bash
 # Paraméterek lekérdezése
@@ -43,7 +45,15 @@ $ python NGL-Spammer -h
 ## Letöltés
 A letöltéshez szükséged lesz a [Git](https://git-scm.com)-re , vagy a  [Releases](https://github.com/BXn4/NGL-Spammer/releases)-nél letöltöd a legfrissebbet. 
 A futtatáshoz [Python](https://www.python.org/) szükséges, ha nincs letöltve, akkor nem fog működni.
+Python letöltése:
+[Windows](https://www.python.org/downloads)-ra
+```bash
+# Ubuntu / Debian
+$ sudo apt install python
 
+# Fedora
+$ sudo dnf install python
+```
 ```bash
 # Letöltés Git-el
 $ git clone https://github.com/bxn4/ngl-spammer
